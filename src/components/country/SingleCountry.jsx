@@ -1,17 +1,14 @@
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export default function SingleCountry() {
-    let param = useParams().countryName
+
     let location = useLocation()
     let navigate = useNavigate()
 
-    console.log(param)
-    let data = location.state.data
+    let data = location.state
+
     const { name: { common: commonName }, population, region, subregion, borders, tld } = data;
 
-    console.log(data)
-
-    // const { population, region, name: { official: name }, flags: { svg: flag } } = data;
 
     return (
         <div className="single-country">

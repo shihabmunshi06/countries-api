@@ -1,58 +1,65 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 
-import Search from "./Search"
-import Dropdown from "./Dropdown"
-import Country from "./Country";
+import Search from "./top/Search"
+import Dropdown from "./top/Dropdown"
+import Country from "./country/Country";
 
+import { useDispatch, useSelector } from "react-redux";
+
+
+import allCountriesFetch from "../fetch/allCountriesFetch";
+import { countryByRandom } from "../redux/actionsMaker";
 
 const App = () => {
-    let [data, setData] = useState([])
 
-    const fetcher = async () => {
-        const responseAll = await axios("https://restcountries.com/v3.1/all");
+    let allCountries = useSelector(state => state.allCountries)
+    let countryDatas = useSelector(state => state.countryDatas)
 
-        let a = [];
-        for (let i = 0; i < 8; i++) {
-            let rand = Math.floor(Math.random() * 250)
-            if (i > 0)
-                if (a[i - 1] === a[i]) continue;
-
-            a.push(responseAll.data[rand])
-        }
-        setData(a)
-    }
+    const dispatch = useDispatch()
 
     useEffect(() => {
-        fetcher()
-    }, [])
+        if (allCountries.length < 1)
+            dispatch(allCountriesFetch)
 
+    }, [dispatch, allCountries])
 
-    const fetchRegion = async (value) => {
-        const responseRegion = await axios(`https://restcountries.com/v3.1/region/${value}`);
-        setData(responseRegion.data)
-    }
-    const fetchSearch = async (value) => {
-        const responseSearch = await axios(`https://restcountries.com/v3.1/name/${value}`);
-        setData(responseSearch.data)
-    }
+    useEffect(() => {
 
-    const countryRender = data.map((each, index) => {
-        return (
-            <Country key={index} data={each} />
-        )
-    })
+        if (allCountries.length > 0 && countryDatas.length < 1) {
+
+            let randomNumbers = []
+
+            for (let i = 0; i < 8; i++) {
+                let rand = Math.floor(Math.random() * 250)
+                if (i > 0) {
+                    if (randomNumbers[i - 1] === rand) continue
+                }
+                randomNumbers.push(rand)
+            }
+
+            dispatch(countryByRandom(randomNumbers))
+        }
+
+    }, [dispatch, allCountries, countryDatas])
+
 
     return (
         <>
 
             <div className="filter">
-                <Search fetch={fetchSearch} />
-                <Dropdown fetch={fetchRegion} />
+                <Search />
+                <Dropdown />
             </div>
 
             <div className="countries">
-                {countryRender}
+                {countryDatas.length < 1 ?
+                    <h2>Countries are loading</h2>
+                    :
+                    countryDatas.map((each, index) => {
+                        return (
+                            <Country key={index} data={each} />
+                        )
+                    })}
             </div>
         </>
 

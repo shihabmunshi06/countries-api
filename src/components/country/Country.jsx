@@ -1,25 +1,32 @@
 import { useNavigate } from "react-router-dom"
 
 export default function Country({ data }) {
-    const { population, region, name: { official: name, common: shortName }, flags: { svg: flag } } = data;
+    const {
+        capital,
+        population,
+        region,
+        name: { common: commonName, official: officialname },
+        flags: { svg: flag }
+    } = data;
 
     let navigate = useNavigate()
 
-    let path = shortName.split(" ")[0]
-    let send = { state: { data } }
+    let path = commonName.split(" ")[0]
 
     function handleCllick() {
-        navigate(path, send)
+        navigate(path, {
+            state: data
+        })
     }
 
     return (
         <div className="country" onClick={handleCllick}>
-            {/* <img src={data.flag} alt="flag" /> */}
+            <img src={flag} alt="flag" />
             <div className="data">
-                <h1>{name}</h1>
+                <h1>{commonName}</h1>
                 <h2>Population: <span>{population}</span></h2>
                 <h2>Region: <span>{region}</span></h2>
-                <h2>Capital: <span>{data.capital ? data.capital[0] : ""}</span></h2>
+                <h2>Capital: <span>{capital ? capital[0] : ""}</span></h2>
             </div>
         </div>
     )

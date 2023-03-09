@@ -1,16 +1,22 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 
-export default function Dropdown(props) {
+import RegionFetch from "../../fetch/RegionFetch"
+
+const optionsList = [
+    "Africa",
+    "America",
+    "Asia",
+    "Europe",
+    "Oceania",
+]
+
+export default function Dropdown() {
     let [expanded, setExpanded] = useState(false);
     let [selected, setSelected] = useState(-1);
 
-    const optionsList = [
-        "Africa",
-        "America",
-        "Asia",
-        "Europe",
-        "Oceania",
-    ]
+    const dispatch = useDispatch()
+
 
     const toggleExpand = () => {
         setExpanded(!expanded);
@@ -25,6 +31,7 @@ export default function Dropdown(props) {
                     role="option"
                     aria-selected={selected === index}
                     onClick={() => {
+                        console.log("clicked")
                         setSelected(index);
                         setExpanded(false);
                     }}
@@ -35,9 +42,12 @@ export default function Dropdown(props) {
         })
 
     useEffect(() => {
-        if (selected > -1)
-            props.fetch(optionsList[selected])
-    }, [selected])
+        if (selected > -1) {
+            dispatch(RegionFetch(optionsList[selected]))
+            console.log(optionsList[selected])
+        }
+
+    }, [dispatch, selected])
 
 
     return (
