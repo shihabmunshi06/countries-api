@@ -1,34 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import { createRoot } from "react-dom/client";
 
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
+import App from "./App";
+import { store } from "./app/store";
+import { Provider } from "react-redux";
 
-import { Provider } from 'react-redux';
-import store from "./redux/store"
 
-import App from "./components/App"
-import Top from './components/top/Top';
-import SingleCountry from './components/country/SingleCountry';
-import NoMatch from './components/NoMatch';
-
-const root = ReactDOM.createRoot(document.getElementById('root'))
-
+const container = document.getElementById("root");
+const root = createRoot(container);
 
 root.render(
-  <BrowserRouter>
-    <Provider store={store}>
-      <Routes>
-        <Route path="/" element={<Top />} >
-          < Route index element={<App />} />
-          <Route path=":countryName" element={<SingleCountry />} />
-        </Route >
-        <Route path="*" element={<NoMatch />} />
-      </Routes>
-    </Provider>
-
-  </BrowserRouter >
-)
+  <Provider store={store}>
+    <App />
+  </Provider>
+);

@@ -1,53 +1,32 @@
-import { useNavigate } from "react-router-dom"
+import React from "react";
+import { useNavigate } from "react-router";
+import { added } from "../../app/features/countrySlice";
+import { useDispatch } from "react-redux";
 
-export default function Country({ data }) {
-    const {
-        capital,
-        population,
-        region,
-        name: { common: commonName, official: officialname },
-        flags: { svg: flag }
-    } = data;
+export default function Country({ country }) {
+    const dispatch = useDispatch()
 
-    let navigate = useNavigate()
+    const { capital: [capitalCity], flags: { alt, png }, name: { common }, population, region } = country;
+    let formattedNumber = population.toLocaleString()
 
-    let path = commonName.split(" ")[0]
+    const navigate = useNavigate()
 
-    function handleCllick() {
-        navigate(path, {
-            state: data
-        })
+    const handleCountryClick = () => {
+        dispatch(added({ region, capitalCity }))
+        navigate(common)
     }
 
     return (
-        <div className="country" onClick={handleCllick}>
-            <img src={flag} alt="flag" />
-            <div className="data">
-                <h1>{commonName}</h1>
-                <h2>Population: <span>{population}</span></h2>
-                <h2>Region: <span>{region}</span></h2>
-                <h2>Capital: <span>{capital ? capital[0] : ""}</span></h2>
+        <div onClick={handleCountryClick} className="card">
+            <div className="flag">
+                <img src={png} alt={alt} />
+            </div>
+            <div className="details">
+                <h1>{common}</h1>
+                <p>population: {formattedNumber}</p>
+                <p>region: {region}</p>
+                <p>capital: {capitalCity}</p>
             </div>
         </div>
     )
 }
-
-
-
-// const { population, region, name: { official: name }, capital: [capital], flags: { svg: flag } } = response.data[20];
-// let push = {
-//     name,
-//     population,
-//     region,
-//     capital,
-//     flag
-// }
-
-
-// {
-//     name: "",
-//     population: "",
-//     region: "",
-//     capital: "",
-//     flag: ""
-// }

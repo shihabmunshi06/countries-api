@@ -1,0 +1,15 @@
+@use "../global/placeholder";
+
+.filters-content-wrapper {
+  padding: 4.4rem 8rem;
+
+  .filters {
+    @extend %space-between;
+    gap: 4rem;
+    flex-wrap: wrap;
+    > * {
+      height: 6rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
