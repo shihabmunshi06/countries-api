@@ -39,12 +39,13 @@ export default function CountryDetails() {
         return <h1> data fetching failed sorry</h1>
     }
     if (status === "succeeded") {
-        const { capital, flags: { alt, svg }, name: { common, nativeName }, population, region, subregion, currencies, languages, tld = "", borders = [] } = data;
+        const { capital, flags: { alt, svg }, name: { common, nativeName }, population, region, subregion, currencies, languages, tld = "", borders = [], cca3 } = data;
 
         const firstNativeNameObject = nativeName[Object.keys(nativeName)[0]]
         const firstcurrencyObject = currencies[Object.keys(currencies)[0]]
         let formattedPopulation = population.toLocaleString()
         let languageArray = Object.values(languages)
+
 
         const handleCLick = (e) => {
             e.preventDefault()

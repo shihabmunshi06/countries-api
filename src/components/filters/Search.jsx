@@ -5,6 +5,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { fetchquery } from '../../app/features/searchSlice';
 import { useDispatch } from 'react-redux';
 
+import { clearSearch } from '../../app/features/searchSlice';
 
 export default function Search() {
   const dispatch = useDispatch()
@@ -17,7 +18,11 @@ export default function Search() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(fetchquery(query))
+    if (query.trim().length > 0) {
+      dispatch(fetchquery(query))
+    } else {
+      dispatch(clearSearch())
+    }
   };
 
   return (

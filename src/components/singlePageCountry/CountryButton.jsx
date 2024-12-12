@@ -1,13 +1,13 @@
 import React from 'react'
-import { fetchCountry } from '../../app/features/countrySlice';
-import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router';
 
 export default function CountryButton({ countryName, countryCode }) {
-    const dispatch = useDispatch()
 
+    const navigate = useNavigate()
     const handleCLick = (e) => {
         e.preventDefault();
-        dispatch(fetchCountry(countryCode))
+
+        navigate("/" + countryCode)
     }
     return (
         <div className="button">

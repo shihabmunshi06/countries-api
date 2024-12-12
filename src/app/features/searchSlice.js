@@ -5,6 +5,7 @@ let initialState = {
   status: "",
   data: [],
   error: "",
+  query: "",
 };
 
 export const fetchquery = createAsyncThunk(
@@ -20,10 +21,15 @@ export const fetchquery = createAsyncThunk(
 const countrySlice = createSlice({
   name: "search",
   initialState,
-  reducers: {},
+  reducers: {
+    clearSearch: (state) => {
+      state.data = [];
+    },
+  },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchquery.pending, (state) => {
+      .addCase(fetchquery.pending, (state, action) => {
+        state.query = action.meta.arg;
         state.status = "loading";
       })
       .addCase(fetchquery.fulfilled, (state, action) => {
@@ -38,4 +44,4 @@ const countrySlice = createSlice({
 });
 
 export default countrySlice.reducer;
-export const { added } = countrySlice.actions;
+export const { clearSearch } = countrySlice.actions;

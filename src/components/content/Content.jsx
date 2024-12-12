@@ -7,13 +7,16 @@ import { useSelector } from 'react-redux';
 export default function Content() {
 
 
-    const countriesArray = useSelector(state => state.countries.data);
-    const searchedCountries = useSelector(state => state.search.data)
-    const dropdownCountries = useSelector(state => state.dropdown.data)
+    const { data: countriesArray, status: countriesStatus } = useSelector(state => state.countries);
+    const { data: searchedCountries, status: searchedCountriesStatus } = useSelector(state => state.search)
+    const { data: dropdownCountries, status: dropdownCountriesStatus } = useSelector(state => state.dropdown)
 
 
     if (!countriesArray || countriesArray.length === 0) {
         return <h1>Data is Loading.....</h1>;
+    }
+    if (searchedCountriesStatus === "failed" || dropdownCountriesStatus === "failed") {
+        return <h1>No Matching Data Found</h1>
     }
 
     let countriesToDisplay = countriesArray;
@@ -31,6 +34,7 @@ export default function Content() {
     if (countriesToDisplay.length === 0) {
         return <h1>No countries found</h1>;
     }
+
     return (
         <div className="content">
             {countriesToDisplay.map((country, index) => (

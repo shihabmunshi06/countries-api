@@ -20,7 +20,11 @@ export const fetchDropdown = createAsyncThunk(
 const dropdownSlice = createSlice({
   name: "dropdown",
   initialState,
-  reducers: {},
+  reducers: {
+    clearDropdown: (state) => {
+      state.data = [];
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchDropdown.pending, (state) => {
@@ -38,3 +42,4 @@ const dropdownSlice = createSlice({
 });
 
 export default dropdownSlice.reducer;
+export const {clearDropdown} = dropdownSlice.actions

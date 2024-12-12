@@ -20,7 +20,7 @@ export default function TopPart() {
             <p>Where in the world</p>
             <div onClick={handleThemeChange} className="theme-mode">
                 <FontAwesomeIcon className='theme-icon' icon={themeMode === "dark" ? faMoon : faLightbulb} />
-                <p>dark mode</p>
+                <p>{themeMode} mode</p>
             </div>
         </div>
     );
