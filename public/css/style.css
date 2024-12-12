@@ -59,6 +59,13 @@ a,
 button {
   display: inline-block;
   text-decoration: none;
+  height: 100%;
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
 }
 
 input,
@@ -159,6 +166,68 @@ button {
   font-size: 1.8rem;
   font-weight: 800;
   margin: 1.7rem 0;
+}
+
+.country-details {
+  padding: 4rem 8rem;
+  border: 1px solid coral;
+}
+.country-details .back-button {
+  margin-bottom: 5rem;
+  width: 14rem;
+  height: 3.5rem;
+  border-radius: 10px;
+  outline: 2px solid #f2f2f2;
+}
+.country-details__content {
+  display: flex;
+  gap: 10rem;
+}
+.country-details__content .flag {
+  width: 54rem;
+  height: 33rem;
+}
+.country-details__content .texts button {
+  font-weight: 300;
+}
+.country-details__content .texts p {
+  font-weight: 300;
+  margin-bottom: 1.4rem;
+}
+.country-details__content .texts span.bold {
+  font-weight: 500;
+}
+.country-details__content .texts h3 {
+  font-weight: 500;
+}
+.country-details__content .texts__top h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 3rem;
+}
+.country-details__content .texts__middle {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 5rem;
+}
+.country-details__content .texts__middle > * {
+  flex: 1 1 21rem;
+}
+.country-details__content .texts__bottom {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+.country-details__content .texts__bottom .countries-button-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+}
+.country-details__content .texts__bottom .countries-button-wrapper .button {
+  outline: 2px solid #f2f2f2;
+  padding: 0.4rem 2rem;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -20,18 +20,22 @@ export default function App() {
   return (
     <div className='main-container'>
       <TopPart />
-      <div className="filters-content-wrapper">
-        <div className='filters'>
-          <Search />
-          <Dropdown />
-        </div>
-        <BrowserRouter>
-          <Routes>
-            <Route path='/' element={<Content />} />
-            <Route path='/:anytext' element={<CountryDetails />} />
-          </Routes>
-        </BrowserRouter>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={
+            <div className="filters-content-wrapper">
+              <div className='filters'>
+                <Search />
+                <Dropdown />
+              </div>
+              <Content />
+            </div>
+          } />
+          <Route path='/:cca3' element={<CountryDetails />} />
+        </Routes>
+      </BrowserRouter>
+
+
     </div>
   )
 }
