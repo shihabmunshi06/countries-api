@@ -3,7 +3,7 @@
   padding-bottom: clamp(4rem, 5vw + 1rem, 6rem);
   // min-width: 24rem;
   display: grid;
-  gap: 4rem;
+  gap: 3rem;
   grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
   grid-template-rows: minmax(32rem, auto);
   grid-auto-rows: auto;

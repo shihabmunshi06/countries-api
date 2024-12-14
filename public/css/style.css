@@ -158,7 +158,7 @@ button {
 .content {
   padding-bottom: clamp(4rem, 5vw + 1rem, 6rem);
   display: grid;
-  gap: 4rem;
+  gap: 3rem;
   grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
   grid-template-rows: minmax(32rem, auto);
   grid-auto-rows: auto;
@@ -230,7 +230,7 @@ button {
   height: 36rem;
 }
 .country-details__content .flag img {
-  object-fit: fill;
+  object-fit: contain;
 }
 .country-details__content .texts button {
   font-weight: 300;
