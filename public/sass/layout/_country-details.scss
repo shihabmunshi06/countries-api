@@ -20,8 +20,11 @@
       }
     }
     .flag {
-      width: 52rem;
-      height: 33rem;
+      width: 56rem;
+      height: 36rem;
+      img{
+        object-fit: fill;
+      }
     }
     .texts {
       button {

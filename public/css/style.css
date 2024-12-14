@@ -226,8 +226,11 @@ button {
   }
 }
 .country-details__content .flag {
-  width: 52rem;
-  height: 33rem;
+  width: 56rem;
+  height: 36rem;
+}
+.country-details__content .flag img {
+  object-fit: fill;
 }
 .country-details__content .texts button {
   font-weight: 300;

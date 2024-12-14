@@ -20,6 +20,7 @@ export default function Search() {
     e.preventDefault();
     if (query.trim().length > 0) {
       dispatch(fetchquery(query))
+      setQuery("");
     } else {
       dispatch(clearSearch())
     }
