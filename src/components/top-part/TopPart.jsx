@@ -5,7 +5,7 @@ import { faMoon, faLightbulb } from '@fortawesome/free-regular-svg-icons';
 
 
 export default function TopPart() {
-    const [themeMode, setThemeMode] = useState("light")
+    const [themeMode, setThemeMode] = useState("dark")
 
     const handleThemeChange = () => {
         if (themeMode === "light") {

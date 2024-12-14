@@ -1,8 +1,10 @@
 @use "../global/placeholder";
 
 .country-details {
-  padding: 4rem 8rem;
+  padding: clamp(3rem, 4vw + 1rem, 5.4rem);
+
   border: 1px solid coral;
+  min-width: 33rem;
   .back-button {
     margin-bottom: 5rem;
     width: 14rem;
@@ -12,13 +14,19 @@
   }
   &__content {
     display: flex;
-    gap: 10rem;
+    gap: 8rem;
+    @media screen and (max-width: 900px) {
+      flex-wrap: wrap;
+      .flag {
+        flex-basis: 60rem;
+      }
+    }
     .flag {
-      width: 54rem;
+      width: 52rem;
       height: 33rem;
     }
     .texts {
-      button{
+      button {
         font-weight: 300;
       }
       p {
@@ -40,17 +48,19 @@
         }
       }
       &__middle {
+        margin-bottom: 5rem;
         display: flex;
         justify-content: space-between;
+
+        flex-wrap: wrap;
+        gap: 2rem;
         > * {
           flex: 1 1 21rem;
         }
-        flex-wrap: wrap;
-        gap: 2rem;
-        margin-bottom: 5rem;
       }
       &__bottom {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         gap: 1.6rem;
         .countries-button-wrapper {
@@ -59,7 +69,7 @@
           gap: 1.4rem;
           .button {
             outline: 2px solid #f2f2f2;
-            padding: .4rem 2rem;
+            padding: 0.4rem 2rem;
           }
         }
       }

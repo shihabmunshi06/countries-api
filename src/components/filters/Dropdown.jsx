@@ -4,12 +4,14 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { fetchDropdown } from '../../app/features/dropdownSlice';
 import { useDispatch } from 'react-redux';
 
+import { clearDropdown } from '../../app/features/dropdownSlice';
+
 export default function Dropdown() {
   const dispatch = useDispatch()
   const [isOpen, setIsOpen] = useState(false);
   const [selectedRegion, setSelectedRegion] = useState('');
 
-  const regions = ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
+  const regions = ['No filter', 'Africa', 'America', 'Asia', 'Europe', 'Oceania'];
 
   const toggleDropdown = () => {
     setIsOpen(prevState => !prevState);
@@ -17,8 +19,13 @@ export default function Dropdown() {
 
   const handleSelect = (region) => {
     setSelectedRegion(region);
-    dispatch(fetchDropdown(region))
+    if (region === "No filter") {
+      dispatch(clearDropdown())
+    } else {
+      dispatch(fetchDropdown(region))
+    }
     setIsOpen(false);
+
   };
 
   return (

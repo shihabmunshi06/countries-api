@@ -1,5 +1,5 @@
 import React from 'react';
-import Country from '../country/Country';
+import Card from '../country/Card';
 import { useSelector } from 'react-redux';
 
 
@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 export default function Content() {
 
 
-    const { data: countriesArray, status: countriesStatus } = useSelector(state => state.countries);
+    const { data: countriesArray } = useSelector(state => state.countries);
     const { data: searchedCountries, status: searchedCountriesStatus } = useSelector(state => state.search)
     const { data: dropdownCountries, status: dropdownCountriesStatus } = useSelector(state => state.dropdown)
 
@@ -36,9 +36,11 @@ export default function Content() {
     }
 
     return (
+
         <div className="content">
             {countriesToDisplay.map((country, index) => (
-                <Country key={index} country={country} />
+                <Card key={index} country={country} />
+
             ))}
         </div>
     );

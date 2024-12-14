@@ -43,7 +43,7 @@ html {
 body {
   font-family: "Nunito Sans", sans-serif;
   font-weight: 600;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   background-color: var(--light-mode-background);
   color: var(--light-mode-text);
 }
@@ -76,13 +76,18 @@ button {
   font-size: inherit;
 }
 
+.main-container > * {
+  padding: clamp(3rem, 4vw + 1rem, 5.4rem);
+}
+
 .top-part {
+  width: 100%;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   height: 8rem;
-  padding: 0 8rem;
-  border-bottom: 2px solid hsl(0, 0%, 92%);
+  gap: 2rem;
 }
 .top-part > p {
-  font-size: 2.5rem;
+  font-size: 2.4rem;
   font-weight: 800;
 }
 .top-part .theme-mode {
@@ -90,44 +95,40 @@ button {
   cursor: pointer;
   font-weight: 400;
 }
-.top-part .theme-mode:hover .theme-icon {
-  transform: scale(1.2);
-}
 
-.filters-content-wrapper {
-  padding: 4.4rem 8rem;
-}
 .filters-content-wrapper .filters {
   gap: 4rem;
   flex-wrap: wrap;
+  margin-bottom: clamp(3rem, 4vw + 1rem, 5.4rem);
 }
 .filters-content-wrapper .filters > * {
   height: 6rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  font-weight: 400;
 }
 
 .search {
-  flex: 1 1 40rem;
-  min-width: 40rem;
+  flex: 1 1 38rem;
+  min-width: 30rem;
   max-width: 48rem;
-  padding: 2rem 3rem;
+  padding: 0 3rem;
   gap: 2.2rem;
 }
 .search .search-icon {
   color: grey;
+  cursor: pointer;
 }
 .search form {
   height: 100%;
   width: 100%;
 }
-.search input {
+.search form input {
   height: 100%;
   width: 100%;
-  font-size: 1.4rem;
 }
 
 .dropdown {
-  font-weight: 300;
   flex: 1 1 20rem;
   min-width: 20rem;
   max-width: 24rem;
@@ -136,41 +137,75 @@ button {
   height: 100%;
   width: 100%;
   padding: 2rem;
+  cursor: pointer;
 }
 .dropdown .dropdown-content {
-  z-index: 10001;
+  z-index: 10;
+  background-color: white;
+  border-radius: 4px;
   width: 100%;
   padding: 2rem;
   margin-top: 0.6rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+.dropdown .dropdown-content > * {
+  cursor: pointer;
+}
+.dropdown .dropdown-content .dropdown-option:not(:last-child) {
+  margin-bottom: 2rem;
+}
 
 .content {
-  margin-top: 4rem;
-  display: flex;
-  gap: 6rem;
-  flex-wrap: wrap;
+  padding-bottom: clamp(4rem, 5vw + 1rem, 6rem);
+  display: grid;
+  gap: 4rem;
+  grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
+  grid-template-rows: minmax(32rem, auto);
+  grid-auto-rows: auto;
+}
+@media screen and (max-width: 590px) {
+  .content {
+    grid-template-columns: 30rem;
+    justify-content: center;
+  }
 }
 .content .card {
-  height: 32rem;
-  width: 26rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-height: 32rem;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 6px;
+}
+.content .card > * {
+  width: 100%;
 }
 .content .card .flag {
   height: 16rem;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
 }
 .content .card .details {
-  padding: 0 2.4rem;
+  padding: 2.4rem;
 }
 .content .card .details h1 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 800;
-  margin: 1.7rem 0;
+  margin-bottom: 1.6rem;
+}
+.content .card .details p {
+  font-weight: 600;
+}
+.content .card .details p span {
+  font-weight: 300;
 }
 
 .country-details {
-  padding: 4rem 8rem;
+  padding: clamp(3rem, 4vw + 1rem, 5.4rem);
   border: 1px solid coral;
+  min-width: 33rem;
 }
 .country-details .back-button {
   margin-bottom: 5rem;
@@ -181,10 +216,18 @@ button {
 }
 .country-details__content {
   display: flex;
-  gap: 10rem;
+  gap: 8rem;
+}
+@media screen and (max-width: 900px) {
+  .country-details__content {
+    flex-wrap: wrap;
+  }
+  .country-details__content .flag {
+    flex-basis: 60rem;
+  }
 }
 .country-details__content .flag {
-  width: 54rem;
+  width: 52rem;
   height: 33rem;
 }
 .country-details__content .texts button {
@@ -206,17 +249,18 @@ button {
   margin-bottom: 3rem;
 }
 .country-details__content .texts__middle {
+  margin-bottom: 5rem;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 2rem;
-  margin-bottom: 5rem;
 }
 .country-details__content .texts__middle > * {
   flex: 1 1 21rem;
 }
 .country-details__content .texts__bottom {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 1.6rem;
 }

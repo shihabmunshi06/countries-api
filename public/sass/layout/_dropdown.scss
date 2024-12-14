@@ -1,7 +1,6 @@
 @use "../global/placeholder";
 
 .dropdown {
-    font-weight: 300;
   flex: 1 1 20rem;
   min-width: 20rem;
   max-width: 24rem;
@@ -9,14 +8,23 @@
     height: 100%;
     width: 100%;
     padding: 2rem;
+    cursor: pointer;
     @extend %space-between;
   }
   .dropdown-content {
-    z-index: 10001;
+    z-index: 10;
+    background-color: white;
+    border-radius: 4px;
     width: 100%;
     padding: 2rem;
     margin-top: 0.6rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
+    > * {
+      cursor: pointer;
+    }
+    .dropdown-option:not(:last-child) {
+      margin-bottom: 2rem;
+    }
   }
 }

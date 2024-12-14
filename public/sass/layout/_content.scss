@@ -1,22 +1,50 @@
+@use "../global/placeholder";
 .content {
-  margin-top: 4rem;
-  display: flex;
-  gap: 6rem;
-  flex-wrap: wrap;
+  padding-bottom: clamp(4rem, 5vw + 1rem, 6rem);
+  // min-width: 24rem;
+  display: grid;
+  gap: 4rem;
+  grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
+  grid-template-rows: minmax(32rem, auto);
+  grid-auto-rows: auto;
+
+  @media screen and (max-width: 590px) {
+    grid-template-columns: 30rem;
+    justify-content: center;
+  }
+
   .card {
-    height: 32rem;
-    width: 26rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    min-height: 32rem;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 6px;
+    > * {
+      width: 100%;
+    }
 
     .flag {
       height: 16rem;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
     }
     .details {
-      padding: 0 2.4rem;
+      padding: 2.4rem;
       h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
         font-weight: 800;
-        margin: 1.7rem 0;
+        margin-bottom: 1.6rem;
+      }
+      p {
+        font-weight: 600;
+        span {
+          font-weight: 300;
+        }
       }
     }
   }

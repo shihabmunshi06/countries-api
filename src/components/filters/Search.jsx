@@ -27,7 +27,7 @@ export default function Search() {
 
   return (
     <div className="search">
-      <FontAwesomeIcon className="search-icon" icon={faMagnifyingGlass} />
+      <FontAwesomeIcon onClick={handleSubmit} className="search-icon" icon={faMagnifyingGlass} />
 
       <form onSubmit={handleSubmit}>
         <input
