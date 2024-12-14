@@ -204,7 +204,6 @@ button {
 
 .country-details {
   padding: clamp(3rem, 4vw + 1rem, 5.4rem);
-  border: 1px solid coral;
   min-width: 33rem;
 }
 .country-details .back-button {
