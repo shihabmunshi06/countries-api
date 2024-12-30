@@ -4,7 +4,7 @@ import axios from "axios";
 export const fetchCountries = createAsyncThunk(
   "country/fetchCountries",
   async () => {
-    const url = "https://restcountries.com/v3.1/all"
+    // const url = "https://restcountries.com/v3.1/all"
     const url2 = "https://restcountries.com/v3.1/independent?status=true";
     const response = await axios.get(url2);
     return response.data.slice(0,5);
