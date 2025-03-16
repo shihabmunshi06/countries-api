@@ -1,14 +1,14 @@
 @use "../../../a-sass/base/abstracts" as *;
 
 .search {
+  @extend %flex;
+  gap: 2.2rem;
+
   flex: 1 1 38rem;
   min-width: 30rem;
   max-width: 48rem;
 
   padding: 0 3rem;
-
-  @extend %flex;
-  gap: 2.2rem;
 
   svg {
     stroke: grey;

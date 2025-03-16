@@ -1,17 +1,19 @@
 @use "../../a-sass/base/abstracts" as *;
 
 .country-details {
-  padding: clamp(3rem, 4vw + 1rem, 5.4rem);
   min-width: 33rem;
+  padding: clamp(3rem, 4vw + 1rem, 5.4rem);
 
   .back-button {
     @extend %flex;
     gap: 1rem;
 
-    margin-bottom: 5rem;
     width: 14rem;
     height: 3.5rem;
     border-radius: 10px;
+
+    margin-bottom: 5rem;
+
     outline: 2px solid #f2f2f2;
 
     svg {
@@ -65,10 +67,6 @@
         margin-bottom: 5rem;
         gap: 10vw;
         flex-wrap: wrap;
-
-        // >* {
-        //   flex: 1 1 21rem;
-        // }
       }
 
     }
