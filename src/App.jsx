@@ -10,8 +10,8 @@ export default function App() {
 
   return (
     <div className='main-container'>
-      <Nav />
       <BrowserRouter>
+        <Nav />
         <Routes>
           <Route path='/' element={
             <div className="filters-countries-wrapper">

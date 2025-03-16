@@ -1,8 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 
-import { addHistory } from "../../../app/features/navigationSlice";
-
 import "./card.scss"
 
 export default function Card({ country }) {
@@ -10,11 +8,9 @@ export default function Card({ country }) {
     const { capital = [], flags: { alt, svg }, name: { common }, population, region, cca3 } = country;
     let formattedNumber = population.toLocaleString()
 
-    const dispatch = useDispatch()
     const navigate = useNavigate()
 
     const handleClick = () => {
-        // dispatch(addHistory(cca3))
         navigate(cca3)
     }
 

@@ -1,5 +1,6 @@
-import React from 'react'
 import { useNavigate } from 'react-router';
+
+import "./country-button.scss"
 
 export default function CountryButton({ countryName, countryCode }) {
 
@@ -10,9 +11,8 @@ export default function CountryButton({ countryName, countryCode }) {
         navigate("/" + countryCode)
     }
     return (
-        <div className="button">
-            <button onClick={handleClick}
-            >{countryName}</button>
+        <div className="button" >
+            <button onClick={handleClick} >{countryName}</button>
         </div>
     )
 }

@@ -10,12 +10,15 @@
   @extend %flex;
   gap: 2.2rem;
 
-  .search-icon {
-    color: grey;
+  svg {
+    stroke: grey;
     cursor: pointer;
+    height: 2rem;
+    width: 2rem;
   }
 
   form {
+    @include flex($alite: center);
     height: 100%;
     width: 100%;
 

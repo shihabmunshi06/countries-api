@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { setDropDown, clearDropdown } from '../../../app/features/dropdownSlice';
+
+import DownIcon from './components/DownIcon';
 
 import "./dropdown.scss"
 
 export default function Dropdown() {
   const dispatch = useDispatch()
+  
   const [isOpen, setIsOpen] = useState(false);
   const [selectedRegion, setSelectedRegion] = useState('');
 
@@ -33,6 +36,7 @@ export default function Dropdown() {
         <span className="dropdown-label">
           {selectedRegion || 'Filter by region'}
         </span>
+        <DownIcon />
       </div>
 
       {isOpen && (

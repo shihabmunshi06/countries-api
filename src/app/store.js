@@ -8,8 +8,8 @@ import navigationSlice from "./features/navigationSlice"
 const store = configureStore({
     reducer: {
         [apiSlice.reducerPath]: apiSlice.reducer,
-        search: searchSlice,
         dropdown: dropdownSlice,
+        search: searchSlice,
         navigation: navigationSlice
     },
     middleware: (defmids) => defmids().concat(apiSlice.middleware)

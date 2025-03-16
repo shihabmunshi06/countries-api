@@ -10,7 +10,14 @@
     width: 100%;
     padding: 2rem;
     cursor: pointer;
-    @include flex($juco: space-between)
+    @include flex($juco: space-between, $alite: center);
+
+    svg {
+      height: 1.6rem;
+      width: 1.6rem;
+    }
+
+
   }
 
   .dropdown-content {

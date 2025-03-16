@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-
 import { setSearch, clearSearch } from '../../../app/features/searchSlice';
+
+import SearchIcon from './components/Search';
 
 import "./search.scss"
 
@@ -28,6 +29,7 @@ export default function Search() {
 
   return (
     <div className="search">
+      <SearchIcon />
       <form onSubmit={handleSubmit}>
         <input
           type="text"

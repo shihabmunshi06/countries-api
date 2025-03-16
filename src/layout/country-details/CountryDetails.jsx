@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { useGetCountryQuery } from '../../app/features/apiSlice';
 import { goback } from '../../app/features/navigationSlice';
 
 import Border from './border/Border';
+
+import BackIcon from './components/BackIcon';
 
 import "./country-details.scss"
 
@@ -17,7 +18,6 @@ export default function CountryDetails() {
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
-
 
     if (isLoading) {
         return <h1>Data is Loading</h1>
@@ -33,7 +33,6 @@ export default function CountryDetails() {
         let formattedPopulation = population.toLocaleString()
         let languageArray = Object.values(languages)
 
-
         const handleCLick = (e) => {
             e.preventDefault()
             if (history.length === 1) {
@@ -48,6 +47,7 @@ export default function CountryDetails() {
         return (
             <div className='country-details'>
                 <div onClick={handleCLick} className="back-button">
+                    <BackIcon />
                     <button >Back</button>
                 </div>
                 <div className="country-details__content">

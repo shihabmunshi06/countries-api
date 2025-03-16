@@ -1,9 +1,16 @@
 @use "../../../../a-sass/base/abstracts" as *;
 
-.country-details__content {
-    .texts {
+.texts__bottom {
+    .countries-button-wrapper {
+
         button {
+            outline: 3px solid #f1f1f1;
+            outline: 3px solid #1D2935;
+            background-color: #2B3743;
+
             font-weight: 300;
+            padding: 0.4rem 2rem;
+
         }
     }
 }

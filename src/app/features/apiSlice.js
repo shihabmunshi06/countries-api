@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
-
 import { addHistory } from "./navigationSlice";
 
 export const apiSlice = createApi({
@@ -11,6 +10,7 @@ export const apiSlice = createApi({
         getCountries: builder.query({
             query: () => "/all",
         }),
+
         getCountry: builder.query({
             query: (cca3) => `/alpha/${cca3}`,
             async onQueryStarted(arg, { dispatch, queryFulfilled }) {
@@ -41,9 +41,11 @@ export const apiSlice = createApi({
                 }
             }
         }),
+
         getRegion: builder.query({
             query: (region) => `/region/${region}`
         }),
+        
         getSearch: builder.query({
             query: (text) => `/name/${text}`
         }),

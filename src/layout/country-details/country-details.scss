@@ -1,34 +1,53 @@
-@use "../../a-sass/base/abstracts" as * ;
+@use "../../a-sass/base/abstracts" as *;
 
 .country-details {
   padding: clamp(3rem, 4vw + 1rem, 5.4rem);
   min-width: 33rem;
+
   .back-button {
     @extend %flex;
+    gap: 1rem;
+
     margin-bottom: 5rem;
     width: 14rem;
     height: 3.5rem;
     border-radius: 10px;
     outline: 2px solid #f2f2f2;
+
+    svg {
+      height: 2rem;
+      width: 2rem;
+    }
   }
+
   &__content {
-    display: flex;
+    @include flex();
     gap: 8rem;
+
     .flag {
-      width: 56rem;
-      height: 36rem;
-      img{
+      width: 46vw;
+      min-width: 40rem;
+      // height: 36rem;
+
+      img {
         object-fit: contain;
       }
     }
+
     .texts {
+      width: 100%;
+
       p {
         font-weight: 300;
         margin-bottom: 1.4rem;
       }
+
       span.bold {
+        font-size: 1.8rem;
         font-weight: 500;
+        margin-right: 1rem;
       }
+
       h3 {
         font-weight: 500;
       }
@@ -40,16 +59,16 @@
           margin-bottom: 3rem;
         }
       }
-      &__middle {
-        margin-bottom: 5rem;
-        display: flex;
-        justify-content: space-between;
 
+      &__middle {
+        @include flex();
+        margin-bottom: 5rem;
+        gap: 10vw;
         flex-wrap: wrap;
-        gap: 2rem;
-        > * {
-          flex: 1 1 21rem;
-        }
+
+        // >* {
+        //   flex: 1 1 21rem;
+        // }
       }
 
     }
