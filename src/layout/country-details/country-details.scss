@@ -1,0 +1,57 @@
+@use "../../a-sass/base/abstracts" as * ;
+
+.country-details {
+  padding: clamp(3rem, 4vw + 1rem, 5.4rem);
+  min-width: 33rem;
+  .back-button {
+    @extend %flex;
+    margin-bottom: 5rem;
+    width: 14rem;
+    height: 3.5rem;
+    border-radius: 10px;
+    outline: 2px solid #f2f2f2;
+  }
+  &__content {
+    display: flex;
+    gap: 8rem;
+    .flag {
+      width: 56rem;
+      height: 36rem;
+      img{
+        object-fit: contain;
+      }
+    }
+    .texts {
+      p {
+        font-weight: 300;
+        margin-bottom: 1.4rem;
+      }
+      span.bold {
+        font-weight: 500;
+      }
+      h3 {
+        font-weight: 500;
+      }
+
+      &__top {
+        h1 {
+          font-size: 3rem;
+          font-weight: 800;
+          margin-bottom: 3rem;
+        }
+      }
+      &__middle {
+        margin-bottom: 5rem;
+        display: flex;
+        justify-content: space-between;
+
+        flex-wrap: wrap;
+        gap: 2rem;
+        > * {
+          flex: 1 1 21rem;
+        }
+      }
+
+    }
+  }
+}

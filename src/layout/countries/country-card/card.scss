@@ -1,0 +1,43 @@
+@use "../../../a-sass/base/abstracts" as *;
+
+.content {
+    .card {
+        @include flex($alite: center);
+        flex-direction: column;
+
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+        min-height: 32rem;
+        height: auto;
+
+        border-radius: 6px;
+
+        >* {
+            width: 100%;
+        }
+
+        .flag {
+            height: 16rem;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+        }
+
+        .details {
+            padding: 2.4rem;
+
+            h1 {
+                font-size: 2rem;
+                font-weight: 800;
+                margin-bottom: 1.6rem;
+            }
+
+            p {
+                font-weight: 600;
+
+                span {
+                    font-weight: 300;
+                }
+            }
+        }
+    }
+}

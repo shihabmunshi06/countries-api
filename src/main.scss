@@ -1,0 +1,6 @@
+@use "./a-sass/base/abstracts" as *;
+
+.main-container>* {
+    padding-left: clamp(3rem, 4vw + 1rem, 5.4rem);
+    padding-right: clamp(3rem, 4vw + 1rem, 5.4rem);
+}

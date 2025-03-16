@@ -1,0 +1,27 @@
+@use "../../../a-sass/base/abstracts" as *;
+
+.search {
+  flex: 1 1 38rem;
+  min-width: 30rem;
+  max-width: 48rem;
+
+  padding: 0 3rem;
+
+  @extend %flex;
+  gap: 2.2rem;
+
+  .search-icon {
+    color: grey;
+    cursor: pointer;
+  }
+
+  form {
+    height: 100%;
+    width: 100%;
+
+    input {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

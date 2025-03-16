@@ -1,0 +1,33 @@
+@use "../../../a-sass/base/abstracts" as *;
+
+.dropdown {
+  flex: 1 1 20rem;
+  min-width: 20rem;
+  max-width: 24rem;
+
+  .dropdown-button {
+    height: 100%;
+    width: 100%;
+    padding: 2rem;
+    cursor: pointer;
+    @include flex($juco: space-between)
+  }
+
+  .dropdown-content {
+    z-index: 10;
+    background-color: white;
+    border-radius: 4px;
+    width: 100%;
+    padding: 2rem;
+    margin-top: 0.6rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    >* {
+      cursor: pointer;
+    }
+
+    .dropdown-option:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+}

@@ -1,15 +1,19 @@
 import { configureStore } from "@reduxjs/toolkit";
-import countriesSlice from "./features/countriesSlice";
-import countrySlice from "./features/countrySlice";
-import searchSlice from "./features/searchSlice";
+
+import { apiSlice } from "./features/apiSlice";
 import dropdownSlice from "./features/dropdownSlice";
-import borderSlice from "./features/borderSlice";
-export const store = configureStore({
-  reducer: {
-    countries: countriesSlice,
-    country: countrySlice,
-    search: searchSlice,
-    dropdown: dropdownSlice,
-    border: borderSlice,
-  },
-});
+import searchSlice from "./features/searchSlice";
+import navigationSlice from "./features/navigationSlice"
+
+const store = configureStore({
+    reducer: {
+        [apiSlice.reducerPath]: apiSlice.reducer,
+        search: searchSlice,
+        dropdown: dropdownSlice,
+        navigation: navigationSlice
+    },
+    middleware: (defmids) => defmids().concat(apiSlice.middleware)
+
+})
+
+export default store

@@ -1,0 +1,17 @@
+@media screen and (max-width: 900px) {
+    .country-details__content {
+        flex-wrap: wrap;
+
+        .flag {
+            flex-basis: 60rem;
+        }
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .content {
+        grid-template-columns: 30rem;
+        justify-content: center;
+    }
+
+}

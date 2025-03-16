@@ -1,0 +1,9 @@
+@use "../../../../a-sass/base/abstracts" as *;
+
+.country-details__content {
+    .texts {
+        button {
+            font-weight: 300;
+        }
+    }
+}
